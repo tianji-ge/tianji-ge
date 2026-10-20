@@ -211,3 +211,8 @@ body {
   .site-head { flex-direction: column; gap: 10px; }
   .nav a { margin: 0 10px; }
 }
+
+/* ---------- master article paywall ---------- */
+.article .para.locked { margin: 12px 0 4px; border-radius: 8px; padding: 14px; background: rgba(255,255,255,.02); }
+.article .para.locked .blur-txt p { margin-bottom: 12px; }
+.article .para.locked .a-tip { opacity: .8; }
