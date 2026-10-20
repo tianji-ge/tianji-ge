@@ -305,11 +305,49 @@ function submitCode() {
   if (c === UNLOCK_CODE) {
     localStorage.setItem('tjg_unlocked', c);
     closePay();
-    runModule();
+    revealArticles();
+    const panel = document.getElementById('panelSec');
+    if (panel && panel.style.display !== 'none') runModule();
   } else {
     alert('解锁码不正确，请确认已付款后使用的码（见弹窗提示）');
   }
 }
+
+// —— 大师亲解文章付费墙：每篇免费看第 1 段，其余模糊锁定，解锁后全部可见 ——
+function applyArticleLock() {
+  document.querySelectorAll('.master-list .article').forEach(art => {
+    if (art.dataset.lockInit) return;
+    art.dataset.lockInit = '1';
+    const nodes = Array.from(art.childNodes).filter(n =>
+      n.nodeType === 1 && (n.tagName === 'P' || n.classList.contains('a-tip')));
+    if (nodes.length < 2) return;
+    const rest = nodes.slice(1);
+    const wrap = document.createElement('div');
+    wrap.className = 'para locked art-locked';
+    const blur = document.createElement('div');
+    blur.className = 'blur-txt';
+    rest.forEach(n => blur.appendChild(n));
+    const cover = document.createElement('div');
+    cover.className = 'lock-cover';
+    cover.innerHTML = '<div class="lock-ic">🔒</div>'
+      + '<div class="lock-t">大师亲解全文（¥9.9 一次解锁九篇全部 + 完整测算报告）</div>'
+      + '<button class="btn-main" onclick="openPay()">微信支付 ¥9.9 解锁</button>';
+    wrap.appendChild(blur);
+    wrap.appendChild(cover);
+    nodes[0].after(wrap);
+  });
+  if (isUnlocked()) revealArticles();
+}
+function revealArticles() {
+  document.querySelectorAll('.master-list .article .para.locked').forEach(w => {
+    const blur = w.querySelector('.blur-txt');
+    if (!blur) return;
+    const frag = document.createDocumentFragment();
+    Array.from(blur.childNodes).forEach(n => frag.appendChild(n));
+    w.replaceWith(frag);
+  });
+}
+applyArticleLock();
 </script>
 </body>
 </html>
