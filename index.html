@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>算命_免费算命_八字算命_称骨算命_周易算命 - 天机阁</title>
+<meta name="description" content="天机阁免费在线算命：八字算命、称骨算命、周易算命、八字运程、五行查询、九星论命、农历算命、鬼谷算命、生日算命，九大测算一次看全。输入生辰，大师视角深度解读，传统命理文化参考。">
+<meta name="keywords" content="算命,免费算命,八字算命,称骨算命,周易算命,八字运程,五行查询,九星论命,农历算命,鬼谷算命,生日算命">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://tianji-ge.github.io/tianji-ge/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"天机阁·算命","url":"https://tianji-ge.github.io/tianji-ge/","description":"八字算命、称骨算命、周易算命、八字运程、五行查询、九星论命、农历算命、鬼谷算命、生日算命，九大免费在线测算。"}
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="brand"><span class="brand-mark">☯</span> 天机阁 <small>· 国学解密</small></div>
+  <nav class="nav">
+    <a href="#modules">九大测算</a>
+    <a href="#master">大师详解</a>
+    <a href="#about">关于本站</a>
+    <a href="#news">今日资讯</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">传统命理文化 · 大师视角解读</div>
+    <h1>一卦知进退，一命晓浮沉</h1>
+    <p class="hero-sub">八字 · 称骨 · 周易 · 运程 · 五行 · 九星 · 农历 · 鬼谷 · 生日<br>九大测算，一次看全。输入生辰，即刻为你深度解析。</p>
+    <a class="hero-cta" href="#modules">开始免费测算 ↓</a>
+    <div class="hero-note">前两段解读免费看 · 完整深度报告 ¥9.9 一次解锁</div>
+  </div>
+</section>
+
+<main id="modules" class="wrap">
+  <h2 class="sec-title">九大测算</h2>
+  <p class="sec-sub">每一项都由真实排盘引擎推演，依据你的生辰八字生成专属解读，绝非常规模板话。</p>
+  <div class="grid" id="grid"></div>
+</main>
+
+<section id="panelSec" class="panel-sec" style="display:none">
+  <div class="wrap">
+    <div class="panel-head">
+      <h2 id="panelTitle">测算</h2>
+      <button class="close-btn" onclick="closePanel()">收起 ✕</button>
+    </div>
+    <div class="form-row" id="formRow">
+      <div class="field"><label>出生日期</label><input type="date" id="fDate"></div>
+      <div class="field"><label>出生时辰</label><select id="fHour">
+        <option value="12">午时 (11-13) 不详则选此</option><option value="0">子时 (23-01)</option><option value="1">丑时 (01-03)</option><option value="3">寅时 (03-05)</option><option value="5">卯时 (05-07)</option><option value="7">辰时 (07-09)</option><option value="9">巳时 (09-11)</option><option value="11">午时 (11-13)</option><option value="13">未时 (13-15)</option><option value="15">申时 (15-17)</option><option value="17">酉时 (17-19)</option><option value="19">戌时 (19-21)</option><option value="21">亥时 (21-23)</option><option value="23">子时 (23-00)</option>
+      </select></div>
+      <div class="field"><label>性别</label><select id="fGender"><option value="男">男</option><option value="女">女</option></select></div>
+      <button class="btn-main" id="goBtn" onclick="runModule()">开始测算</button>
+    </div>
+    <div id="result"></div>
+  </div>
+</section>
+
+<section id="about" class="about wrap">
+  <h2 class="sec-title">关于本站</h2>
+  <div class="about-txt">
+    <p>天机阁是面向大众的传统命理文化在线测算平台，集<b>八字算命、称骨算命、周易算命、八字运程、五行查询、九星论命、农历算命、鬼谷算命、生日算命</b>九大测算于一体。本站排盘引擎依据真实干支历法推算：年柱以立春为界、月柱依二十四节气、日柱按儒略日推演、时辰按五鼠遁起，确保每一个生辰得到的四柱、骨重、卦象、星曜都各不相同。</p>
+    <p>与市面上千篇一律的模板话术不同，本站九大模块各自独立成篇：八字看命局与十神，称骨看骨重与歌诀，周易以梅花易数起卦，运程排八步大运与流年，五行查旺衰与喜用，九星定本命星曜与当运之气，农历以月令日辰论性情，鬼谷以两头钳断早中晚三段，生日以灵数季节探天性。同一生辰，九种视角；不同生辰，字字不同。</p>
+    <p>命理之说源自先贤对天时人事的观察，本站恪守「文化参考」之旨：所有解读仅供传统文化研究与自我认知参考，不作任何命运定论，更不构成医疗、投资、人生决策依据。知命者不惧命，愿你在了解自己的路上，多一分从容与笃定。</p>
+  </div>
+</section>
+
+<section id="master" class="master-sec">
+  <div class="wrap">
+    <h2 class="sec-title">大师亲解 · 九大测算</h2>
+    <p class="sec-sub">以下九篇，皆为本站主理人常年为人批命、答疑的经验之谈。不套模板、不喊口号，只把各门派真看的东西，原原本本说给你听。</p>
+    <div class="master-list">
+
+      <article class="article">
+        <h3><span class="idx">1</span>八字算命</h3>
+        <div class="a-tag">四柱 · 日主 · 十神格局</div>
+        <p>八字算命，民间也叫四柱推命，是天机阁里我看得最多、也最见真章的一门。所谓八字，就是把一个人出生的年、月、日、时，各自配上一组天干地支，合成四柱八个字。别小看这八个字，它就像你落地那一刻天地给你盖的一枚"出厂印章"，记录的是当时流转的五行之气。我排盘第一件事，是先看<b>日主</b>——也就是出生那天的天干，它代表你自己。日主是强是弱，身边是生扶你的印星比劫，还是耗泄你的财星官杀，一眼就能看出一个人是天生有人托着走，还是注定要自己扛事。</p>
+        <p>接着看<b>十神</b>：正官、七杀、正财、偏财、食神、伤官、正印、偏印、比肩、劫财。这十种关系，把你的性格、事业、婚姻、财运全都摊开来讲。比如伤官旺的人，聪明外露、不喜约束，适合手艺活或靠表达吃饭；正官透干的人，规矩踏实，宜走管理或公职。八字不是一张宿命判决书，而是一张性格与机遇的地图。同年同日生的人，时辰不同、大运不同，走向便千差万别。我常跟客人讲：批八字，不是为了让你认命，而是为了在好的年份敢冲、在坏的年份能忍。</p>
+        <p>再说常被问到的一点：为什么同年同月同日生的人，命却不一样？关键在"时"与"运"。两个同月同日生的人，一个生在清晨卯时、一个生在深夜子时，日主所临的五行气场便截然不同；再加上各自起运岁数、所走大运顺逆有别，人生轨迹自然分岔。所以负责任的批命，绝不肯只凭一个生日下定论，必定把时辰、性别、大运一并摊开。这也是天机阁坚持让客人填全生辰再出报告的原因——差一个时辰，断语可能就翻了车。</p>
+        <div class="a-tip">大师提醒：日主强弱只是底色，真正定吉凶的，是喜用神有没有被大运流年引动。只看日主强弱就下结论的，多半是外行。</div>
+      </article>
+
+      <article class="article">
+        <h3><span class="idx">2</span>称骨算命</h3>
+        <div class="a-tag">袁天罡 · 骨重歌诀 · 轻重之辨</div>
+        <p>称骨算命，传说是唐代袁天罡所创，民间又叫"称命骨"。它的算法很直白：把出生的年、月、日、时各对应一个"骨重"数字，四样加起来，得到你这一生的总骨重，少则二两一，多则七两一，再对照那首流传千年的《称骨歌》，便知一二。我给人称骨，第一句总是先泼盆冷水：<b>骨重轻不等于命不好，骨重高也不代表一生顺遂</b>。二两多的命，歌里写"劳心费力枉维艰"，说的是早年多磨；但磨过了，后劲未必差。七两的"权贵之命"，也要看本人有没有那个心气和机缘去接。</p>
+        <p>称骨最妙的地方，是它把一生划成了"早年、中年、晚年"三段来断，每一段都有对应的诗句。我常拿它跟八字合参：八字看的是你"是什么料"，称骨看的是你"这一路大概几道坎、几道坡"。二者对上了，客人往往一拍大腿——"可不就是这么过来的"。这门法子胜在好记、好讲，三两句话就能让人听得进去。但它到底粗了些，只宜当个开门的引子，真要细断，还得落回八字和大运。</p>
+        <p>常有客人问，称骨和八字哪个更准？我的回答是：它们看的是不同层面，谈不上谁压谁。称骨像给你量个"总分量"，三两、四两、五两，有个大致的人生重量级；八字则是把五脏六腑一个个剖开看。分量轻的未必不经事，分量重的也未必不摔跤。我更愿意把称骨当作破冰——先让客人从"我大概几斤几两"这种轻松话头里，对自己生出一点好奇，再慢慢带他看更细的八字。命理最怕一上来就吓人，也最怕一上来就哄人。称骨的好处，恰恰是它分寸刚好：说得明白，又不至于把人钉死。</p>
+        <div class="a-tip">大师提醒：称骨是"大纲"，不是"明细账"。拿它当茶余饭后的自省可以，拿它吓自己，大可不必。</div>
+      </article>
+
+      <article class="article">
+        <h3><span class="idx">3</span>周易算命</h3>
+        <div class="a-tag">梅花易数 · 起卦 · 体用与动爻</div>
+        <p>周易算命，在天机阁我用得最多的是<b>梅花易数</b>。它妙在"随心起卦"——不必铜钱摇卦，看个数字、听句话、甚至念头一动，都能起出一卦。我给人起卦，常取他报来的生辰数字，或者他问事时辰的干支，折算成上卦下卦，合为六十四卦之一。卦一成，便分<b>体用</b>：体卦代表问卦的人，用卦代表他所问的那件事。体克用则成，用克体则阻，体用比和则顺。再看<b>动爻</b>，动爻在哪爻，吉凶的转机就在那一爻的爻辞里。</p>
+        <p>很多人以为周易就是"算准不准"，其实大错。周易真正教人的，是"变"字——卦会变，事也会变，同一卦在不同人、不同处境下，断法全然不同。我断卦，从不开口就说死，而是把几种可能的走向摆出来，让客人自己掂量。比如问合作，体卦受生、用卦来生，那是贵人相帮；若用卦克体又逢空亡，我便劝他缓一缓，别急着签字。周易是面镜子，照的是你当下的态势，不是钉死的结局。心越静，卦越准；心里先有了答案，卦反而不灵。</p>
+        <p>说到起卦的讲究，我必提一个"诚"字。梅花易数最忌带着玩闹心来问——你心里根本不当回事，卦象自然飘忽，解出什么全凭硬凑，那是既对卦不敬、也对自己不负责。反之，真遇着拿不准的事，郑重起一卦，心一静，感应就通了。另一层讲究是"不动不占"：没事别天天摇卦玩，卦是给你在十字路口指方向的，不是解闷的。这些年我见过太多把周易当彩票机的人，天天问财运，越问越慌。周易教的是"观象玩辞、安身立命"，用在静心决疑上它才是活的，用在投机取巧上便成了迷魂汤。</p>
+        <div class="a-tip">大师提醒：梅花易数重"感而遂通"。带着戏谑心、试探心来问，卦象必然飘忽。郑重其事，才对得起这一卦。</div>
+      </article>
+
+      <article class="article">
+        <h3><span class="idx">4</span>八字运程</h3>
+        <div class="a-tag">大运 · 流年 · 十年一运的节奏</div>
+        <p>八字算的是"命"，运程算的是"运"。命是底色，运是天气——底色改不了，但晴天雨天你总得知道，好带伞还是好晒粮。我排运程，第一步是起<b>大运</b>：以月柱为起点，阳年男命、阴年女命顺排，反之逆排，每一步管十年。起运的岁数也紧要，有人三岁就交运，有人十岁才动，早交运的早熟，晚交运的厚积。大运定的是"十年一段的大气候"，而真正年年都在动的，是<b>流年</b>——你今年撞上的太岁。</p>
+        <p>我常跟客人说，看运程别只盯"今年好不好"。要看的是：你八字里那个<b>喜用神</b>，今年是被大运流年引出来了，还是被冲克掉了。喜用神得地，便是你的"黄金十年"开启；忌神当道，就是该蛰伏蓄力的年份。比如一个喜火的人，走南方火运、又逢火旺流年，事业往往一飞冲天；若偏走水运，再努力也像逆水行舟。运程的价值，不在吓你，而在提醒你：顺势时别浪，逆势时别慌。知运，是为了把力气用在刀刃上。</p>
+        <p>很多客人把"犯太岁"听成了噩耗，其实大可不必。太岁是当年的轮值星君，你生肖若与它相冲相刑，叫犯太岁，这一年确实容易有波动——但也只是"容易"，不是"一定"。我排运程时，会把犯太岁放进整个大运格局里看：若你正走在喜用神的大运上，犯太岁不过是路上的小石子；若本就走在忌神运里，那才要当心。所以运程报告里我最看重的一句话，永远是"你这几年整体在什么样的运上"，而不是"你今年犯不犯太岁"。把格局看明白，该投资的年份别怂，该缩手的年份别贪，这比戴十个护身符都管用。</p>
+        <div class="a-tip">大师提醒：大运十年一换，流年年年不同。网上那些"属X的人今年必破财"的笼统说法，看个乐就好，落不到你个人八字上，不算数。</div>
+      </article>
+
+      <article class="article">
+        <h3><span class="idx">5</span>五行查询</h3>
+        <div class="a-tag">旺衰 · 喜用神 · 缺什么未必补什么</div>
+        <p>五行查询，是天机阁里最容易被误解的一项。太多人一上来就问："大师，我五行缺什么？"好像缺了就得赶紧补。其实五行讲究的是<b>平衡</b>，不是凑齐。我查五行，先看你出生日的天干，定出日主，再看八字里金木水火土各占多少、谁旺谁衰。日主弱，喜生扶自己的那一行；日主强，喜耗泄自己的那一行——这被生或被耗的，就叫<b>喜用神</b>。一个人的喜用神，才是他真正的"幸运色、幸运方位、幸运行业"。</p>
+        <p>举个小例子：一个人八字里火极旺、水极弱，日主属火，火多反而烤焦了自己，这时候他不是"缺水要补水"，而是水恰恰是他的救星，名字带水、往北方走、做属水的行业（物流、贸易、咨询）都更顺。反过来，若八字本就水旺，再硬补一堆水，就是雪上加霜。所以五行查询的核心，永远是"看旺衰、定喜用"，而不是机械地"缺啥补啥"。我把每个人的五行分布画成一张图，哪里虚、哪里实，一目了然，比干巴巴说"你缺金"有用得多。</p>
+        <p>再讲一个实操误区：不少人以为"我八字缺水，名字就该补满水"。结果名字起得水汪汪，人却越发没精神。原因在哪？因为他日主本身属水且已经过旺，再补水就是涝了。五行调理，得先辨日主的寒热燥湿：寒命要暖、燥命要润，不是单纯往里灌某一行。我给客人定的"喜用神"，常会细到"喜甲木透干""喜丙火调候"这种程度——同样是木，死木活木有别；同样是火，文火烈火作用天差地别。把五行当作一套动态的平衡术，而非静态的加减法，你才算真正摸到了门道。</p>
+        <div class="a-tip">大师提醒：五行没有绝对的好与坏。过旺要泄，过弱要扶，孤阴不生、独阳不长，平衡才是根本。</div>
+      </article>
+
+      <article class="article">
+        <h3><span class="idx">6</span>九星论命</h3>
+        <div class="a-tag">紫白九星 · 本命星曜 · 当运之气</div>
+        <p>九星论命，源自风水里的<b>紫白九星</b>：一白贪狼、二黑巨门、三碧禄存、四绿文曲、五黄廉贞、六白武曲、七赤破军、八白左辅、九紫右弼。每人按出生年份，都能归到一颗"本命星曜"，它像你随身的气场底色。比如一白水星的人，聪明灵动、善交际；八白土星的人，踏实稳重、聚财有方；九紫火星的人，热情外露、桃花与人缘都旺。我给客人论九星，是先看他本命星，再看他今年踩在哪颗"流年星"上——本命星与流年星相生还是相克，直接关系这一年的顺逆。</p>
+        <p>九星最实用的地方，是它能把"运势"和"方位"连起来。哪颗星当运（比如八白、九紫是近年的旺星），哪个方位就宜动土、宜布局；哪颗是退气星或五黄凶星，那方就得安静、少折腾。我常教客人：本命星曜决定你是哪一路人，流年星曜告诉你今年往哪使力最划算。把这两者合着看，比单看生肖运势要精细得多。九星论命胜在简洁好懂，三言两语就能点出一个人"骨子里的气场"，很适合作为了解自己的第一扇门。</p>
+        <p>关于九星，常被混淆的是"本命星"和"宅命星"。本命星跟着你出生年走，是你个人的气场；宅命星跟着房屋坐向走，是环境的气场。两者最好相生不相克——你本命喜火，住在九紫离火当旺的房子，便是人和宅相得益彰；本命忌金的人偏住六白金星重的方位，久了容易觉得压抑、诸事不顺。当然，人搬不动命，但能调环境。我给客人论九星，末了总给一两条"今年宜往哪个方位多走动、哪个方位宜静"的建议，不玄乎，就当顺着气场走，人轻松点。九星真正的价值，是给你一张"年度方位与气场地图"。</p>
+        <div class="a-tip">大师提醒：九星论的是"气"的趋向，不是铁定发生的事。把它当年度气场指南，比当预言准得多。</div>
+      </article>
+
+      <article class="article">
+        <h3><span class="idx">7</span>农历算命</h3>
+        <div class="a-tag">月令 · 日辰 · 生肖配月</div>
+        <p>农历算命，看的是你落在农历这把"时间尺"上的位置。我排农历，最看重两样：一是<b>月令</b>，二是<b>日辰</b>。老话讲"月令为提纲"，你出生在哪个月，就像庄稼落在哪个节气——正月生的人带着春生的勃发，七月生的人多了秋敛的沉静。月份不只定生肖，更定了一个人先天的"气禀"底色。再看农历的日辰干支，那是一月三十天里你具体落的那一格，细到性情里的急缓、待人里的冷热。</p>
+        <p>农历算命还有一门有趣的"生肖配月"：同一种生肖，出生在春天和出生在冬天，脾性、际遇常有微妙差别。我给客人论农历，从不孤立看某一项，而是把"农历生日 + 节气 + 生肖"串成一条线，讲他天生的禀性从哪来、后天的节奏怎么调。这门法子没有八字那么细，但胜在亲切、好上手，特别适合刚接触命理的朋友。很多人听完会笑："怪不得我一到换季就犯懒，原来是月令带的。"——说得俗了点，道理不假。</p>
+        <p>顺带说一个农历里很实用的小门道：农历的"节气"比"初一十五"更决定一个人的禀气。比如生在立春前和立春后，虽同是农历正月，年的干支却可能已跨了界，属相、月柱都不同。所以排农历我必定核对节气交接的时刻，绝不只看日历上的月份数字。这也是天机阁的农历测算要先让你填公历生日、再由系统精确推算农历与节气的原因——差几个小时的边界，落在"节前"还是"节后"，禀气就两样。懂了这个，你再看网上那些"农历X月生人性格"的笼统说法，就知道为什么有时对有时不对：它们大多没算节气这道关。</p>
+        <div class="a-tip">大师提醒：农历算命是"看天性"，不是"定穷通"。它告诉你种子是什么，长成什么样，还得看后天的土和光。</div>
+      </article>
+
+      <article class="article">
+        <h3><span class="idx">8</span>鬼谷算命</h3>
+        <div class="a-tag">两头钳 · 年干配时 · 诗断三生</div>
+        <p>鬼谷算命，用的是鬼谷子传下的<b>两头钳</b>古法。它的特别之处，是用你出生的"年干"和"时辰"两数相配，推出一个"基本数"，再对应一组秘传诗诀，把一生断成"基业、兄弟、行藏"三段——也就是你打底的根基、同辈的助力、以及进退行藏的节奏。我读鬼谷诗，最欣赏它那股"知机"的味道：它不像别家只说好歹，而是告诉你在哪个节点该进、哪个节点该藏。</p>
+        <p>两头钳的诗，句是古语，读懂却要活解。比如"基业"诗讲祖上荫庇与自立，"兄弟"诗讲同辈缘分厚薄，"行藏"诗讲一生起伏的大势。我给人断鬼谷，习惯先把它和八字合参：八字定"你能扛多重的事"，鬼谷点"你大概在哪几个关口转弯"。两者一合，客人常有一种"原来我那几次大起大落早有伏笔"的释然。鬼谷算命最高明的地方，是教人"识时务"——知道自己的运程节点，便不至于在低谷时硬撑、在高峰时妄为。</p>
+        <p>鬼谷两头钳还有个妙用，是看"兄弟"与"人际助力"。它那段兄弟诗，说的不是你真有几个兄弟姐妹，而是你这一生里，同辈、伙伴、同事能给你多少支撑，又容易在哪些节点起摩擦。我常有客人困惑："为什么我总在合作里吃亏？"翻出鬼谷的兄弟诗一看，往往是他本就处在"兄弟缘薄、宜独撑"的格局，硬要去抱团，反而内耗。反过来，兄弟诗旺的人，单打独斗反而憋屈，得有人搭把手才顺。命理最务实的用法，就是帮你认清"你适合单干还是合伙""该在几岁前后换赛道"——鬼谷这套三段诗，恰好把人生的几个大弯点标得清清楚楚。</p>
+        <div class="a-tip">大师提醒：鬼谷两头钳重"断势"不重"断事"。它给你的是人生节奏感，不是逐年的流水账。</div>
+      </article>
+
+      <article class="article">
+        <h3><span class="idx">9</span>生日算命</h3>
+        <div class="a-tag">生命灵数 · 出生季节 · 天性起点</div>
+        <p>生日算命，是天机阁里最轻巧、也最戳年轻人的一门。它不从干支入手，而是看你出生的"数字"和"季节"。把公历生日的日、月、年各位数相加，归到一个 1 到 9 的<b>生命灵数</b>——1 号人天生带领导气，2 号人善调和，3 号人乐天表达，4 号人务实稳健……每个数字像一种出厂设定，藏着你最舒服的天赋赛道。再看你出生在春、夏、秋、冬哪一季，又给这份天性加了层"温度"：春生者生发，夏生者热烈，秋生者通透，冬生者内敛。</p>
+        <p>我给客人算生日，从不说它比八字准，而是把它当成"认识自己的快速入口"。很多人第一次听到自己的灵数特质，会愣一下然后点头："好像还真是这样。"它不谈吉凶祸福，只谈你"本来是什么样的人、适合往哪使劲"。对于还没接触过传统命理、又想多了解自己一点的朋友，生日算命是个很好的起点：门槛低、不吓人、还能马上对上号。把它和八字、九星合着看，你对自己的拼图，就又完整了一块。</p>
+        <p>最后说句实在话：生日算命、生命灵数这套，源流其实杂，有东方余绪，也有西方数秘学的影子。我不把它当"算命"，而把它当"自我觉察的小工具"。它的好处是人人算得懂、马上能对上号，适合拿来破冰、拿来聊。但真要往深里走，还得回到八字、紫微这类成体系的学问。所以我常跟年轻客人讲：拿生日灵数认识一下自己的天性，挺好；真遇上人生大事拿不准，别只信一句"你这周运势不佳"，得来天机阁把生辰排全了，让大师把前后的运程节点看明白。工具没有高低，用对地方才是关键。</p>
+        <div class="a-tip">大师提醒：生日算命看的是"天性起点"，不是命运终点。知道自己是哪块料，比算准某年发财要实在。</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="news" class="news-sec">
+  <div class="wrap">
+    <h2 class="sec-title">今日资讯</h2>
+    <p class="sec-sub">命理国学·民俗文化圈热点资讯，每日更新。</p>
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-brand">☯ 天机阁 · 国学解密</p>
+    <p class="foot-links"><a href="#modules">九大测算</a> · <a href="#about">关于本站</a> · <a href="#news">今日资讯</a> · <a href="sitemap.xml">网站地图</a></p>
+    <p class="foot-dis">本站内容为传统命理民俗文化参考与娱乐，不作任何命运定论，不构成医疗/投资建议。请理性看待，切勿沉迷。</p>
+  </div>
+</footer>
+
+<!-- 支付解锁弹窗 -->
+<div class="modal" id="payModal" style="display:none">
+  <div class="modal-box">
+    <button class="close-btn" onclick="closePay()">✕</button>
+    <h3>解锁全部深度解读</h3>
+    <p class="pay-sub">一次解锁，九大测算完整报告全部可看（含本次与往后的所有测算）</p>
+    <div class="pay-body">
+      <img src="pay-9.9.jpg" alt="微信支付 ¥9.9" class="qr">
+      <div class="pay-steps">
+        <p><b>①</b> 微信扫码支付 <b class="red">¥9.9</b></p>
+        <p><b>②</b> 付款后，在下方输入本页解锁码即可解锁</p>
+        <p><b>③</b> 解锁码：<b class="red big" id="payCode">TIANJI99</b>（付款后使用）</p>
+        <p><b>④</b> 如需客服协助，点击下方「发送订单邮件」</p>
+      </div>
+    </div>
+    <div class="pay-actions">
+      <div class="code-row">
+        <input type="text" id="codeInput" placeholder="输入解锁码 TIANJI99" maxlength="12">
+        <button class="btn-sub" onclick="submitCode()">解锁</button>
+      </div>
+      <button class="btn-main" id="reqBtn" onclick="requestUnlock()">发送订单邮件给站长</button>
+      <div id="reqState" class="req-state"></div>
+    </div>
+    <p class="pay-note">客服邮箱：807904997@qq.com · 本站内容为传统文化参考，不作定论</p>
+  </div>
+</div>
+
+<script src="js/news-data.js"></script>
+<script src="js/bazi.js"></script>
+<script src="js/lunar.js"></script>
+<script src="js/fortunes-data.js"></script>
+<script src="js/fortunes.js"></script>
+<script>
+const MODULES = [
+  { key: 'bazi',     name: '八字算命', icon: '🐢', desc: '四柱排盘 · 十神格局 · 命局总论' },
+  { key: 'chenggu',  name: '称骨算命', icon: '⚖️', desc: '袁天罡称骨 · 骨重歌诀 · 三段运势' },
+  { key: 'zhouyi',   name: '周易算命', icon: '☯', desc: '梅花易数 · 起卦解卦 · 动爻示变' },
+  { key: 'yuncheng', name: '八字运程', icon: '🌊', desc: '八步大运 · 流年吉凶 · 黄金十年' },
+  { key: 'wuxing',   name: '五行查询', icon: '🌲', desc: '五行旺衰 · 喜用神 · 纳音本命' },
+  { key: 'jiuxing',  name: '九星论命', icon: '✨', desc: '紫白九星 · 本命星曜 · 当运之气' },
+  { key: 'nongli',   name: '农历算命', icon: '🌕', desc: '农历换算 · 月令日辰 · 生肖配月' },
+  { key: 'guigu',    name: '鬼谷算命', icon: '📜', desc: '两头钳法 · 年干配时 · 诗断三生' },
+  { key: 'shengri',  name: '生日算命', icon: '🎂', desc: '生命灵数 · 季节气禀 · 日辰姿态' }
+];
+let curModule = null, curReqId = null, reqTimer = null;
+
+function isUnlocked() { return !!localStorage.getItem('tjg_unlocked'); }
+
+// 渲染模块卡片
+const grid = document.getElementById('grid');
+grid.innerHTML = MODULES.map(m =>
+  `<div class="card" onclick="openPanel('${m.key}')">
+     <div class="card-icon">${m.icon}</div>
+     <div class="card-name">${m.name}</div>
+     <div class="card-desc">${m.desc}</div>
+     <div class="card-go">立即测算 →</div>
+   </div>`).join('');
+
+// 渲染资讯（优先读后端接口，失败回退静态数据）
+function renderNews(list) {
+  const ng = document.getElementById('newsGrid');
+  if (!ng) return;
+  ng.innerHTML = (list || []).map(n =>
+    `<a class="news-item" target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=${encodeURIComponent(n.t)}">
+       <span class="news-tag">${n.tag || '命理'}</span>
+       <span class="news-title">${n.t}</span>
+       <span class="news-date">${n.d}</span>
+     </a>`).join('');
+}
+(function () {
+  renderNews(window.NEWS || []);
+})();
+
+function openPanel(key) {
+  curModule = key;
+  const m = MODULES.find(x => x.key === key);
+  document.getElementById('panelTitle').textContent = m.icon + ' ' + m.name;
+  document.getElementById('panelSec').style.display = 'block';
+  document.getElementById('result').innerHTML = '';
+  const d = new Date(); d.setFullYear(d.getFullYear() - 30);
+  document.getElementById('fDate').value = d.toISOString().slice(0, 10);
+  document.getElementById('panelSec').scrollIntoView({ behavior: 'smooth' });
+}
+function closePanel() { document.getElementById('panelSec').style.display = 'none'; }
+
+function runModule() {
+  const dv = document.getElementById('fDate').value;
+  if (!dv) { alert('请选择出生日期'); return; }
+  const [y, m, d] = dv.split('-').map(Number);
+  if (y < 1901 || y > 2099) { alert('请选择 1901-2099 年之间的日期'); return; }
+  const h = +document.getElementById('fHour').value;
+  const gender = document.getElementById('fGender').value;
+  const r = window.Fortune[curModule]({ y, m, d, h, gender });
+  const unlocked = isUnlocked();
+  const FREE = 2;
+  let html = '<div class="chip-row">' + r.panel.map(p => `<div class="chip"><span class="chip-k">${p[0]}</span><span class="chip-v">${p[1]}</span></div>`).join('') + '</div>';
+  r.paras.forEach((t, i) => {
+    if (unlocked || i < FREE) {
+      html += `<div class="para${i < FREE ? ' free' : ' paid-open'}">${t}</div>`;
+    } else {
+      html += `<div class="para locked"><div class="blur-txt">${t}</div>
+        <div class="lock-cover"><div class="lock-ic">🔒</div>
+        <div class="lock-t">完整深度解读（¥9.9 一次解锁全部）</div>
+        <button class="btn-main" onclick="openPay()">微信支付 ¥9.9 解锁</button></div></div>`;
+    }
+  });
+  html += '<p class="result-dis">本解读由真实干支排盘引擎依据「' + y + '-' + m + '-' + d + '」生成，为传统命理文化参考，不作任何命运定论。</p>';
+  document.getElementById('result').innerHTML = html;
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+}
+
+function openPay() { document.getElementById('payModal').style.display = 'flex'; }
+function closePay() {
+  document.getElementById('payModal').style.display = 'none';
+}
+// 静态解锁：解锁码由站长在付款确认后提供给客户，码内置本页，付款即视为授权。
+const UNLOCK_CODE = 'TIANJI99';
+try { document.getElementById('payCode').textContent = UNLOCK_CODE; } catch (e) {}
+function requestUnlock() {
+  // 用客户自己的邮件客户端，把订单发到站长邮箱（无需服务器、无需额外账号）
+  const subj = encodeURIComponent('天机阁解锁订单-' + (curModule || '算命'));
+  const body = encodeURIComponent('我已微信支付 ¥9.9，申请解锁【' + (curModule || '算命') + '】。\n我的联系微信/手机：\n支付时间：\n（请站长核对微信收款后回复解锁码 ' + UNLOCK_CODE + '）');
+  location.href = 'mailto:807904997@qq.com?subject=' + subj + '&body=' + body;
+  document.getElementById('reqState').innerHTML = '已打开邮件客户端，发送后站长核对收款即会回复解锁码。当前解锁码见弹窗：<b class="red">' + UNLOCK_CODE + '</b>';
+}
+function submitCode() {
+  const c = (document.getElementById('codeInput').value || '').trim().toUpperCase();
+  if (!c) { alert('请输入解锁码'); return; }
+  if (c === UNLOCK_CODE) {
+    localStorage.setItem('tjg_unlocked', c);
+    closePay();
+    runModule();
+  } else {
+    alert('解锁码不正确，请确认已付款后使用的码（见弹窗提示）');
+  }
+}
+</script>
+</body>
+</html>

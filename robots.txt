@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tianji-ge.github.io/tianji-ge/sitemap.xml

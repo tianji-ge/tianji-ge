@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>站长后台 - 天机阁</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"PingFang SC","Microsoft YaHei",sans-serif; background:#10151c; color:#e8e2d5; line-height:1.9; padding:40px 20px; }
+.box { max-width:680px; margin:0 auto; }
+h1 { color:#d4b06a; font-size:24px; letter-spacing:2px; margin-bottom:8px; text-align:center; }
+.sub { text-align:center; color:#9aa3ad; font-size:13px; margin-bottom:24px; }
+.card { background:#1b2330; border:1px solid rgba(212,176,106,.2); border-radius:12px; padding:24px; margin-bottom:18px; }
+.card h3 { color:#d4b06a; font-size:16px; margin-bottom:12px; }
+.code { color:#e05b4c; font-weight:700; font-size:26px; letter-spacing:3px; background:#141b25; border:1px dashed rgba(224,91,76,.4); border-radius:8px; padding:10px 16px; display:inline-block; }
+ul { padding-left:20px; color:#cfc8ba; }
+li { margin:6px 0; }
+.tip { color:#9aa3ad; font-size:12px; margin-top:10px; }
+.btn { background:linear-gradient(135deg,#c9a35c,#a37f3f); border:none; color:#16120a; font-weight:700; padding:11px 26px; border-radius:8px; cursor:pointer; font-size:14px; margin-top:6px; }
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>☯ 天机阁 · 站长后台</h1>
+  <div class="sub">本页仅供站长查看，已设置 noindex 不收录</div>
+
+  <div class="card">
+    <h3>① 当前解锁码（已付款客户使用）</h3>
+    <div class="code" id="uc">TIANJI99</div>
+    <p class="tip">客户微信扫码付 ¥9.9 后，把本码告诉他们即可解锁。改码方法：编辑 index.html 中的 <code>UNLOCK_CODE</code> 常量（同时改本页）。</p>
+  </div>
+
+  <div class="card">
+    <h3>② 如何接单 / 确认付款</h3>
+    <ul>
+      <li>客户扫码付 ¥9.9（微信收款码见首页弹窗）→ 你微信收到入账通知。</li>
+      <li>客户也会点「发送订单邮件」把订单发到 <b>807904997@qq.com</b>，含其联系方式。</li>
+      <li>核对微信收款金额（¥9.9）与邮件一致后，将上面解锁码发给客户即可。</li>
+      <li>每日订单量：以微信收款记录为准，可选在微信「账单」中导出核对。</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>③ 每日自动更新说明</h3>
+    <ul>
+      <li>资讯：每天 08:05 自动联网搜命理热点，更新 8 条、保 16 条（本地自动化已配好）。</li>
+      <li>推广：每天 09:30 自动生成 SEO 软文 + 合规引流文案草稿（仅本地，待你人工发到知乎/百度知道等）。</li>
+      <li>搜索引擎收录：上线后在百度/360/搜狗站长平台提交 sitemap.xml（含本站 URL）。</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
