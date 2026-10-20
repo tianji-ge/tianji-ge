@@ -29,8 +29,6 @@
     <div class="hero-tag">传统命理文化 · 大师视角解读</div>
     <h1>一卦知进退，一命晓浮沉</h1>
     <p class="hero-sub">八字 · 称骨 · 周易 · 运程 · 五行 · 九星 · 农历 · 鬼谷 · 生日<br>九大测算，一次看全。输入生辰，即刻为你深度解析。</p>
-    <a class="hero-cta" href="#modules">开始免费测算 ↓</a>
-    <div class="hero-note">前两段解读免费看 · 完整深度报告 ¥9.9 一次解锁</div>
   </div>
 </section>
 
@@ -178,23 +176,23 @@
 <div class="modal" id="payModal" style="display:none">
   <div class="modal-box">
     <button class="close-btn" onclick="closePay()">✕</button>
-    <h3>解锁全部深度解读</h3>
-    <p class="pay-sub">一次解锁，九大测算完整报告全部可看（含本次与往后的所有测算）</p>
+    <h3>微信扫码支付 ¥9.9</h3>
+    <p class="pay-sub">一次解锁 · 九大测算完整解析 + 九篇大师亲解全部可看 · 本机永久保存</p>
     <div class="pay-body">
       <img src="pay-9.9.jpg" alt="微信支付 ¥9.9" class="qr">
       <div class="pay-steps">
         <p><b>①</b> 微信扫码支付 <b class="red">¥9.9</b></p>
-        <p><b>②</b> 付款后，在下方输入本页解锁码即可解锁</p>
-        <p><b>③</b> 解锁码：<b class="red big" id="payCode">TIANJI99</b>（付款后使用）</p>
-        <p><b>④</b> 如需客服协助，点击下方「发送订单邮件」</p>
+        <p><b>②</b> 支付完成后，点击下方「我已完成支付，申请解锁」</p>
+        <p><b>③</b> 站长核对收款后，回复你的专属解锁码</p>
+        <p><b>④</b> 输入解锁码，即可查看全部完整解析</p>
       </div>
     </div>
     <div class="pay-actions">
       <div class="code-row">
-        <input type="text" id="codeInput" placeholder="输入解锁码 TIANJI99" maxlength="12">
-        <button class="btn-sub" onclick="submitCode()">解锁</button>
+        <input type="text" id="codeInput" placeholder="输入站长回复的解锁码" maxlength="12">
+        <button class="btn-sub" onclick="submitCode()">解锁并查看完整解析</button>
       </div>
-      <button class="btn-main" id="reqBtn" onclick="requestUnlock()">发送订单邮件给站长</button>
+      <button class="btn-main" id="reqBtn" onclick="requestUnlock()">我已完成支付，申请解锁</button>
       <div id="reqState" class="req-state"></div>
     </div>
     <p class="pay-note">客服邮箱：807904997@qq.com · 本站内容为传统文化参考，不作定论</p>
@@ -269,17 +267,30 @@ function runModule() {
   const r = window.Fortune[curModule]({ y, m, d, h, gender });
   const unlocked = isUnlocked();
   const FREE = 2;
+  const mName = (MODULES.find(x => x.key === curModule) || {}).name || '测算';
   let html = '<div class="chip-row">' + r.panel.map(p => `<div class="chip"><span class="chip-k">${p[0]}</span><span class="chip-v">${p[1]}</span></div>`).join('') + '</div>';
-  r.paras.forEach((t, i) => {
-    if (unlocked || i < FREE) {
-      html += `<div class="para${i < FREE ? ' free' : ' paid-open'}">${t}</div>`;
-    } else {
-      html += `<div class="para locked"><div class="blur-txt">${t}</div>
-        <div class="lock-cover"><div class="lock-ic">🔒</div>
-        <div class="lock-t">完整深度解读（¥9.9 一次解锁全部）</div>
-        <button class="btn-main" onclick="openPay()">微信支付 ¥9.9 解锁</button></div></div>`;
+  const freeCount = unlocked ? r.paras.length : Math.min(FREE, r.paras.length);
+  r.paras.forEach((t, i) => { if (i < freeCount) html += `<div class="para free">${t}</div>`; });
+  if (!unlocked && r.paras.length > FREE) {
+    const n = r.paras.length - FREE;
+    html += `<div class="pw-card">
+      <div class="pw-title">🔓 解锁「${mName}」完整解析</div>
+      <p class="pw-desc">免费部分已为你排出<b>排盘信息</b>，并精批前 ${FREE} 段解读。完整解析另含 <b>${n} 段深度解读</b>，均由排盘引擎据你的生辰逐条推演、本机永久保存：</p>
+      <div class="pw-price">¥9.9 <small>单次解锁 · 九大测算 + 九篇大师亲解 全部可看</small></div>
+      <div class="pw-steps">
+        <p><b>①</b> <a href="javascript:openPay()">微信扫码支付 ¥9.9</a></p>
+        <p><b>②</b> 支付完成后点击下方「我已完成支付，申请解锁」</p>
+        <p><b>③</b> 站长核对收款后回复专属解锁码，输入即可查看完整解析</p>
+      </div>
+      <button class="btn-main" onclick="openPay()">微信支付 ¥9.9 解锁</button>
+      <button class="btn-sub" onclick="requestUnlock()">我已完成支付，申请解锁</button>
+      <div class="code-row"><input type="text" id="codeInput2" placeholder="输入解锁码" maxlength="12"><button class="btn-sub" onclick="submitCode('codeInput2')">解锁</button></div>
+      <div class="req-state" id="reqState2"></div>
+    </div>`;
+    for (let i = FREE; i < r.paras.length; i++) {
+      html += `<div class="para locked"><div class="lock-ic">🔒</div><div class="lock-t">深度解读 · 第 ${i + 1} 段</div><div class="lock-hint">解锁完整解析后查看本段全文</div></div>`;
     }
-  });
+  }
   html += '<p class="result-dis">本解读由真实干支排盘引擎依据「' + y + '-' + m + '-' + d + '」生成，为传统命理文化参考，不作任何命运定论。</p>';
   document.getElementById('result').innerHTML = html;
   document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
@@ -289,19 +300,21 @@ function openPay() { document.getElementById('payModal').style.display = 'flex';
 function closePay() {
   document.getElementById('payModal').style.display = 'none';
 }
-// 静态解锁：解锁码由站长在付款确认后提供给客户，码内置本页，付款即视为授权。
+// 解锁码不在页面展示：客户支付并向站长申请后，由站长核对收款再单独回复解锁码。
 const UNLOCK_CODE = 'TIANJI99';
-try { document.getElementById('payCode').textContent = UNLOCK_CODE; } catch (e) {}
 function requestUnlock() {
   // 用客户自己的邮件客户端，把订单发到站长邮箱（无需服务器、无需额外账号）
   const subj = encodeURIComponent('天机阁解锁订单-' + (curModule || '算命'));
-  const body = encodeURIComponent('我已微信支付 ¥9.9，申请解锁【' + (curModule || '算命') + '】。\n我的联系微信/手机：\n支付时间：\n（请站长核对微信收款后回复解锁码 ' + UNLOCK_CODE + '）');
+  const body = encodeURIComponent('我已微信支付 ¥9.9，申请解锁【' + (curModule || '算命') + '】。\n我的联系微信/手机：\n支付时间：\n（请站长核对微信收款后回复解锁码）');
   location.href = 'mailto:807904997@qq.com?subject=' + subj + '&body=' + body;
-  document.getElementById('reqState').innerHTML = '已打开邮件客户端，发送后站长核对收款即会回复解锁码。当前解锁码见弹窗：<b class="red">' + UNLOCK_CODE + '</b>';
+  document.querySelectorAll('.req-state').forEach(el => {
+    el.innerHTML = '✅ 已打开邮件客户端发送订单。站长核对微信收款后会回复你的专属解锁码，输入即可解锁查看完整解析。';
+  });
 }
-function submitCode() {
-  const c = (document.getElementById('codeInput').value || '').trim().toUpperCase();
-  if (!c) { alert('请输入解锁码'); return; }
+function submitCode(id) {
+  const inp = document.getElementById(id || 'codeInput');
+  const c = ((inp && inp.value) || '').trim().toUpperCase();
+  if (!c) { alert('请输入解锁码（付款申请后由站长回复）'); return; }
   if (c === UNLOCK_CODE) {
     localStorage.setItem('tjg_unlocked', c);
     closePay();
@@ -309,11 +322,11 @@ function submitCode() {
     const panel = document.getElementById('panelSec');
     if (panel && panel.style.display !== 'none') runModule();
   } else {
-    alert('解锁码不正确，请确认已付款后使用的码（见弹窗提示）');
+    alert('解锁码不正确。请确认已完成支付并向站长申请解锁，以站长回复的码为准。');
   }
 }
 
-// —— 大师亲解文章付费墙：每篇免费看第 1 段，其余模糊锁定，解锁后全部可见 ——
+// —— 大师亲解文章付费墙：每篇免费看第 1 段，其余整体隐藏，解锁后全部可见 ——
 function applyArticleLock() {
   document.querySelectorAll('.master-list .article').forEach(art => {
     if (art.dataset.lockInit) return;
@@ -322,29 +335,27 @@ function applyArticleLock() {
       n.nodeType === 1 && (n.tagName === 'P' || n.classList.contains('a-tip')));
     if (nodes.length < 2) return;
     const rest = nodes.slice(1);
-    const wrap = document.createElement('div');
-    wrap.className = 'para locked art-locked';
-    const blur = document.createElement('div');
-    blur.className = 'blur-txt';
-    rest.forEach(n => blur.appendChild(n));
-    const cover = document.createElement('div');
-    cover.className = 'lock-cover';
-    cover.innerHTML = '<div class="lock-ic">🔒</div>'
-      + '<div class="lock-t">大师亲解全文（¥9.9 一次解锁九篇全部 + 完整测算报告）</div>'
+    const hide = document.createElement('div');
+    hide.className = 'art-rest';
+    rest.forEach(n => hide.appendChild(n));
+    nodes[0].after(hide);
+    const lock = document.createElement('div');
+    lock.className = 'art-lock';
+    lock.innerHTML = '<div class="lock-ic">🔒</div>'
+      + '<div class="lock-t">大师亲解全文 · 余下 ' + rest.length + ' 段深度解读（含大师提醒）</div>'
+      + '<div class="lock-hint">与九大测算完整解析共用一次解锁，解锁后全部内容永久可看</div>'
       + '<button class="btn-main" onclick="openPay()">微信支付 ¥9.9 解锁</button>';
-    wrap.appendChild(blur);
-    wrap.appendChild(cover);
-    nodes[0].after(wrap);
+    hide.after(lock);
   });
   if (isUnlocked()) revealArticles();
 }
 function revealArticles() {
-  document.querySelectorAll('.master-list .article .para.locked').forEach(w => {
-    const blur = w.querySelector('.blur-txt');
-    if (!blur) return;
+  document.querySelectorAll('.master-list .article .art-rest').forEach(h => {
+    const lock = h.nextElementSibling;
+    if (lock && lock.classList.contains('art-lock')) lock.remove();
     const frag = document.createDocumentFragment();
-    Array.from(blur.childNodes).forEach(n => frag.appendChild(n));
-    w.replaceWith(frag);
+    Array.from(h.childNodes).forEach(n => frag.appendChild(n));
+    h.replaceWith(frag);
   });
 }
 applyArticleLock();
